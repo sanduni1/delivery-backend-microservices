@@ -1,0 +1,19 @@
+{
+  "name": "delivery-backend-microservices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanduni1/delivery-backend-microservices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanduni1/delivery-backend-microservices/issues"
+  },
+  "homepage": "https://github.com/sanduni1/delivery-backend-microservices#readme"
+}
