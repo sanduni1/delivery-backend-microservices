@@ -1,13 +1,13 @@
-const Order = require('../models/order.model');
+const Delivery = require('../models/delivery.model');
 
-const addOrder = async (request, response) => {
+const addDelivery = async (request, response) => {
 
-  const order = new Order(request.body);
+  const delivery = new Delivery(request.body);
 
-  console.log(order);
+  console.log(delivery);
 
 
-  await order.save((error, user) => {
+  await delivery.save((error, delivery) => {
     if(error){
       response.status(500).json({ error: error.message });
       console.log(error.message)
@@ -16,13 +16,13 @@ const addOrder = async (request, response) => {
       response.status(200).
       json({
         success: true,
-        order: order
+        delivery: delivery
       })
     }
   });
 }
 
-const getOrder = async(request, response) => {
+const getDelivery = async(request, response) => {
   try {
     User.findById(request.params.id, (error, data) => {
       if (error) {
@@ -30,7 +30,7 @@ const getOrder = async(request, response) => {
       } else {
         response.status(200).json({
           success: true,
-          order: data
+          delivery: delivery
         })
       }
     })
@@ -38,14 +38,14 @@ const getOrder = async(request, response) => {
     console.log(e);
   }
 }
-const getOrders = async (request, response) => {
+const getDeliveries = async (request, response) => {
 
   try{
-    const order = await Order.find();
+    const delivery = await Delivery.find();
     response.status(200).
     json({
       success: true,
-      order: order
+      delivery: delivery
     })
   } catch (error) {
     response.status(404).json({
@@ -56,11 +56,11 @@ const getOrders = async (request, response) => {
 }
 
 //change
-const updateOrder = async (request, response) => {
-  const order = new Order(request.body);
+const updateDelivery = async (request, response) => {
+  const delivery = new Delivery(request.body);
 
-  await Order.findByIdAndUpdate(request.body._id,order,
-    (error,order) => {
+  await Delivery.findByIdAndUpdate(request.body._id,delivery,
+    (error,delivery) => {
       if(error){
         console.log(error);
         response.status(500).json({ error: error.message });
@@ -69,14 +69,14 @@ const updateOrder = async (request, response) => {
         response.status(200).
         json({
           success: true,
-          order: order
+          delivery: delivery
         })
       }
     });
 }
 
-const deleteOrder = async (request, response) => {
-  await Order.findByIdAndRemove(request.params.id,(error,order) => {
+const deleteDelivery = async (request, response) => {
+  await Delivery.findByIdAndRemove(request.params.id,(error,delivery) => {
     if(error){
       response.status(500).json({ error: error.message });
     }
@@ -84,7 +84,7 @@ const deleteOrder = async (request, response) => {
       response.status(200).
       json({
         success: true,
-        order: order
+        delivery: delivery
       })
     }
   })
@@ -94,9 +94,9 @@ const deleteOrder = async (request, response) => {
 
 
 module.exports = {
-  getOrders,
-  getOrder,
-  addOrder,
-  updateOrder,
-  deleteOrder
+  getDeliveries,
+  getDelivery,
+  addDelivery,
+  updateDelivery,
+  deleteDelivery
 }
